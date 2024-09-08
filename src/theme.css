@@ -1,0 +1,52 @@
+:root {
+    /* Colors */
+    --color-background: #0a0a0a;
+    --color-background-secondary: #1e1f20;
+    --color-text: #F9FAFB;
+    --color-text-secondary: #D1D5DB;
+    --color-accent: #e6e6e6;
+    --color-accent-hover: #acacac;
+  
+    /* Fonts */
+    --font-family-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    --font-family-serif: 'Georgia', 'Cambria', 'Times New Roman', Times, serif;
+    --font-family-mono: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  }
+
+  .theme-dark {
+    --color-background: #0a0a0a;
+    --color-background-secondary: #1e1f20;
+    --color-text: #F9FAFB;
+    --color-text-secondary: #D1D5DB;
+    --color-accent: #e6e6e6;
+    --color-accent-hover: #acacac;
+  }
+
+  .theme-dark2 {
+    --color-background: #04091a;
+    --color-background-secondary: #0a1420;
+    --color-text: #F9FAFB;
+    --color-text-secondary: #D1D5DB;
+    --color-accent: #3f7dcf;
+    --color-accent-hover: #1057b4;
+  }
+  
+  /* You can define alternative themes here */
+  .theme-light {
+    --color-background: #FFFFFF;
+    --color-background-secondary: #F3F4F6;
+    --color-text: #111827;
+    --color-text-secondary: #4B5563;
+    --color-accent: #3f7dcf;
+    --color-accent-hover: #1057b4;
+  }
+  
+  /* Example of another color scheme */
+  .theme-ocean {
+    --color-background: #0C4A6E;
+    --color-background-secondary: #075985;
+    --color-text: #E0F2FE;
+    --color-text-secondary: #BAE6FD;
+    --color-accent: #22D3EE;
+    --color-accent-hover: #06B6D4;
+  }
