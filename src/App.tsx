@@ -35,12 +35,12 @@ function App() {
           </Routes>
         </main>
         <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-secondary">
-          <p className="text-xs text-text-secondary">© 2023 Your Name. All rights reserved.</p>
+          <p className="text-xs text-text-secondary">© 2023 Sarvesh Mayilvahanan. All rights reserved.</p>
           <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-            <a className="text-xs hover:text-accent transition-colors" href="https://github.com/sarveshmayil">
+            <a className="text-xs hover:text-accent transition-colors" href="https://github.com/sarveshmayil" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
-            <a className="text-xs hover:text-accent transition-colors" href="https://www.linkedin.com/in/sarvesh-mayilvahanan/">
+            <a className="text-xs hover:text-accent transition-colors" href="https://www.linkedin.com/in/sarvesh-mayilvahanan/" target="_blank" rel="noopener noreferrer">
               LinkedIn
             </a>
             {/* <a className="text-xs hover:text-accent transition-colors" href="#">
