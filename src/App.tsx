@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import ProjectsPage from './components/ProjectsPage';
 import ResearchPage from './components/ResearchPage';
-import AboutPage from './components/AboutPage';
+import ResumePage from './components/ResumePage';
 
 function App() {
   return (
@@ -21,8 +21,8 @@ function App() {
             <Link className="text-sm font-medium hover:text-accent transition-colors" to="/research">
               Research
             </Link>
-            <Link className="text-sm font-medium hover:text-accent transition-colors" to="/about">
-              About
+            <Link className="text-sm font-medium hover:text-accent transition-colors" to="/resume">
+              Resume
             </Link>
           </nav>
         </header>
@@ -31,7 +31,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/research" element={<ResearchPage />} />
-            <Route path="/about" element={<AboutPage />} />
+            <Route path="/resume" element={<ResumePage />} />
           </Routes>
         </main>
         <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-secondary">
