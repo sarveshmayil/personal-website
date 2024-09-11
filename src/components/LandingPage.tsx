@@ -18,7 +18,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
     });
 
     const height = useTransform(scrollYProgress, [0.3, 0.4], ["200px", "600px"]);
-    const opacity = useTransform(scrollYProgress, [0.3, 0.5], [0, 1]);
+    const opacity = useTransform(scrollYProgress, [0.3, 0.4], [0, 1]);
 
     return (
         <motion.div
@@ -27,7 +27,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
             className="bg-background rounded-lg shadow-md overflow-hidden"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
+            transition={{ duration: 0.3, delay: index * 0.1 }}
         >
             <div className="p-6 h-full flex flex-col">
                 <h3 className="text-xl font-bold text-text mb-2">{project.title}</h3>
@@ -49,7 +49,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
 
 const LandingPage: React.FC = () => {
     const mainSectionRef = useRef<HTMLElement>(null);
-    
+
     const featuredProjects: Project[] = [
         {
             title: 'Project 1',
