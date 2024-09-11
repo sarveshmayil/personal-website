@@ -46,16 +46,22 @@ const InteractivePoint: React.FC<{ point: Point; mousePosition: { x: number; y: 
   );
 };
 
-const InteractiveGrid: React.FC = () => {
+interface InteractiveGridProps {
+  containerRef: React.RefObject<HTMLElement>;
+}
+
+const InteractiveGrid: React.FC<InteractiveGridProps> = ({ containerRef }) => {
   const [points, setPoints] = useState<Point[]>([]);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const containerRef = useRef<SVGSVGElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
 
   const generatePoints = useCallback(() => {
+    if (!containerRef.current) return;
+
     const newPoints: Point[] = [];
     const spacing = 60;
     const width = window.innerWidth;
-    const height = 800; // Adjust this value to match the height of your top section
+    const height = containerRef.current.offsetHeight;
 
     for (let x = spacing; x < width - spacing; x += spacing) {
       for (let y = spacing; y < height - spacing; y += spacing) {
@@ -64,7 +70,7 @@ const InteractiveGrid: React.FC = () => {
     }
 
     setPoints(newPoints);
-  }, []);
+  }, [containerRef]);
 
   useEffect(() => {
     generatePoints();
@@ -77,8 +83,8 @@ const InteractiveGrid: React.FC = () => {
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
+      if (svgRef.current) {
+        const rect = svgRef.current.getBoundingClientRect();
         setMousePosition({
           x: event.clientX - rect.left,
           y: event.clientY - rect.top,
@@ -95,7 +101,7 @@ const InteractiveGrid: React.FC = () => {
 
   return (
     <svg 
-      ref={containerRef}
+      ref={svgRef}
       className="absolute top-0 left-0 w-full h-full"
       style={{ userSelect: 'none' }}
     >

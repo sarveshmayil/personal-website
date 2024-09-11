@@ -48,6 +48,8 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
 };
 
 const LandingPage: React.FC = () => {
+    const mainSectionRef = useRef<HTMLElement>(null);
+    
     const featuredProjects: Project[] = [
         {
             title: 'Project 1',
@@ -71,8 +73,8 @@ const LandingPage: React.FC = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen">
-            <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 flex items-center justify-center relative overflow-hidden">
-                <InteractiveGrid />
+            <section ref={mainSectionRef} className="w-full py-12 md:py-24 lg:py-32 xl:py-48 flex items-center justify-center relative overflow-hidden">
+                <InteractiveGrid containerRef={mainSectionRef} />
                 <div className="container px-4 md:px-6 relative z-10">
                     <div className="flex flex-col items-center space-y-4 text-center">
                         <div className="space-y-2">
