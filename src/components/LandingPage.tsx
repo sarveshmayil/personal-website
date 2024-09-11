@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import InteractiveGrid from './InteractiveGrid';
 
 interface Project {
     title: string;
@@ -70,8 +71,9 @@ const LandingPage: React.FC = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen">
-            <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 flex items-center justify-center">
-                <div className="container px-4 md:px-6">
+            <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 flex items-center justify-center relative overflow-hidden">
+                <InteractiveGrid />
+                <div className="container px-4 md:px-6 relative z-10">
                     <div className="flex flex-col items-center space-y-4 text-center">
                         <div className="space-y-2">
                             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-accent">
