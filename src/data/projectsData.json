@@ -1,0 +1,22 @@
+[
+    {
+      "slug": "project1",
+      "title": "Project 1",
+      "shortDescription": "Brief description of Project 1. Highlight key features and technologies used.",
+      "technologies": ["React", "Node.js", "MongoDB"],
+      "image": "/images/project1.jpg",
+      "githubLink": "https://github.com/yourusername/project1",
+      "liveLink": "https://project1.com",
+      "markdownFile": "project1.md"
+    },
+    {
+      "slug": "project2",
+      "title": "Project 2",
+      "shortDescription": "Brief description of Project 2. Explain its purpose and your role in it.",
+      "technologies": ["Vue.js", "Express", "PostgreSQL"],
+      "image": "/images/project2.jpg",
+      "githubLink": "https://github.com/yourusername/project2",
+      "liveLink": "https://project2.com",
+      "markdownFile": "project2.md"
+    }
+  ]
