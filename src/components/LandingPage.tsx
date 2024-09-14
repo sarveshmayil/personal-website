@@ -1,7 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
-// import InteractiveGrid from './InteractiveGrid';
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+
+import CloudParticles from "./InfinityCloud/_CloudParticles";
+import FloatingParticles from "./InfinityCloud/_FloatingParticles";
 
 interface Project {
     title: string;
@@ -47,8 +51,18 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
     );
 };
 
+const getCSSVariable = (variableName: string): string => {
+    return getComputedStyle(document.documentElement).getPropertyValue(variableName).trim();
+};
+
 const LandingPage: React.FC = () => {
-    const mainSectionRef = useRef<HTMLElement>(null);
+    const [backgroundColor, setBackgroundColor] = useState<string>('');
+    const [fogColor, setFogColor] = useState<string>('');
+
+    useEffect(() => {
+        setBackgroundColor(getCSSVariable('--color-background'));
+        setFogColor(getCSSVariable('--color-background-dark'));
+    }, []);
 
     const featuredProjects: Project[] = [
         {
@@ -73,9 +87,17 @@ const LandingPage: React.FC = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen">
-            <section ref={mainSectionRef} className="w-full py-12 md:py-24 lg:py-32 xl:py-48 flex items-center justify-center relative overflow-hidden">
-                {/* <InteractiveGrid containerRef={mainSectionRef} /> */}
-                <div className="container px-4 md:px-6 relative z-10">
+            <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 bottom-0 z-0">
+                    <Canvas camera={{ position: [0, 0, 2], fov: 75 }}>
+                        <color attach="background" args={[backgroundColor]} />
+                        <fog attach="fog" args={[fogColor, 2, 3]} />
+                        <CloudParticles />
+                        <FloatingParticles />
+                        <OrbitControls />
+                    </Canvas>
+                </div>
+                <div className="container px-4 md:px-6 relative z-10 pointer-events-none">
                     <div className="flex flex-col items-center space-y-4 text-center">
                         <div className="space-y-2">
                             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-accent">
@@ -99,7 +121,7 @@ const LandingPage: React.FC = () => {
                     </div>
                 </div>
             </section>
-            <section className="w-full py-12 md:py-24 lg:py-32 bg-background-secondary">
+            <section className="w-full py-12 md:py-24 lg:py-32 bg-background-secondary relative z-20">
                 <div className="container px-4 md:px-6 mx-auto">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-accent mb-8">Featured Projects</h2>
                     <div className="grid gap-24 md:grid-cols-2 lg:grid-cols-3 justify-center">
