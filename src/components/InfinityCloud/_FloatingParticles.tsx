@@ -1,11 +1,19 @@
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useEffect, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
+
+import { getCSSVariable } from "../../utils/cssUtils";
 
 const FLOATING_PARTICLE_COUNT = 40;
 const SCENE_SIZE = 5; // Size of the cubic space for floating particles
 
 const FloatingParticles: React.FC = () => {
+    const [particleColor, setParticleColor] = useState<string>('');
+
+    useEffect(() => {
+        setParticleColor(getCSSVariable('--color-accent'));
+    }, []);
+
     // Reference to the instanced mesh
     const instancedMesh = useRef<THREE.InstancedMesh>(null);
     // Dummy object used for transformations
@@ -77,7 +85,7 @@ const FloatingParticles: React.FC = () => {
     return (
         <instancedMesh ref={instancedMesh} args={[undefined, undefined, FLOATING_PARTICLE_COUNT]}>
             <sphereGeometry args={[1, 4, 4]} />
-            <meshBasicMaterial color="#ffffff" />
+            <meshBasicMaterial color={particleColor} />
         </instancedMesh>
     );
 };

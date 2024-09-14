@@ -1,6 +1,8 @@
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useEffect, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
+
+import { getCSSVariable } from "../../utils/cssUtils";
 
 const PARTICLE_COUNT = 2000;
 const CURVE_SEGMENTS = 64;
@@ -8,6 +10,12 @@ const THICKNESS = 2.5;
 const LERP_FACTOR = 0.01; // Adjust this value to control smoothness (0-1)
 
 const CloudParticles: React.FC = () => {
+    const [particleColor, setParticleColor] = useState<string>('');
+
+    useEffect(() => {
+        setParticleColor(getCSSVariable('--color-accent'));
+    }, []);
+
     // Reference to the instanced mesh
     const instancedMesh = useRef<THREE.InstancedMesh>(null);
     // Dummy object used for transformations
@@ -72,7 +80,7 @@ const CloudParticles: React.FC = () => {
     return (
         <instancedMesh ref={instancedMesh} args={[undefined, undefined, PARTICLE_COUNT]}>
             <sphereGeometry args={[1, 4, 4]} />
-            <meshBasicMaterial color="#ffffff" />
+            <meshBasicMaterial color={particleColor} />
         </instancedMesh>
     );
 };
