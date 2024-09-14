@@ -95,9 +95,9 @@ export default function ProjectPage() {
             }
             return <ImageComponent src={props.src ?? ''} alt={props.alt} />;
           },
-          h1: ({ node, ...props }) => <h1 className="text-3xl font-bold my-4" {...props} />,
-          h2: ({ node, ...props }) => <h2 className="text-2xl font-bold my-3" {...props} />,
-          h3: ({ node, ...props }) => <h3 className="text-xl font-bold my-2" {...props} />,
+          h1: ({ node, children, ...props }) => <h1 className="text-3xl font-bold my-4" {...props} tabIndex={-1}>{children}</h1>,
+          h2: ({ node, children, ...props }) => <h2 className="text-2xl font-bold my-3" {...props} tabIndex={-1}>{children}</h2>,
+          h3: ({ node, children, ...props }) => <h3 className="text-xl font-bold my-2" {...props} tabIndex={-1}>{children}</h3>,
           ul: ({ node, ...props }) => <ul className="list-disc list-inside my-2" {...props} />,
           ol: ({ node, ...props }) => <ol className="list-decimal list-inside my-2" {...props} />,
           p: ({ node, ...props }) => <p className="my-2" {...props} />,
