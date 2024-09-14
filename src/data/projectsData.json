@@ -1,20 +1,24 @@
 [
     {
-      "slug": "project1",
-      "title": "Project 1",
-      "shortDescription": "Brief description of Project 1. Highlight key features and technologies used.",
-      "technologies": ["React", "Node.js", "MongoDB"],
-      "image": "/images/project1.jpg",
-      "githubLink": "https://github.com/yourusername/project1",
-      "liveLink": "https://project1.com",
-      "markdownFile": "project1.md"
-    },
-    {
       "slug": "transfuser",
       "title": "Transfuser: Autonomous Vehicle Visual Control in Simulation",
       "shortDescription": "Using neural networks to drive a car in CARLA.",
       "image": "/images/transfuser/carla.png",
       "githubLink": "https://github.com/sarveshmayil/carla_garage",
       "markdownFile": "transfuser.md"
+    },
+    {
+      "slug": "botlab",
+      "title": "Autonomous Differential-Drive Robot",
+      "shortDescription": "Building a robot that can navigate autonomously.",
+      "image": "/images/botlab/mbot.jpg",
+      "markdownFile": "botlab.md"
+    },
+    {
+      "slug": "armlab",
+      "title": "Autonomous 5-DOF Robotic Arm",
+      "shortDescription": "Building a robotic arm that can pick and place objects.",
+      "image": "/images/armlab/armlab.png",
+      "markdownFile": "armlab.md"
     }
   ]
