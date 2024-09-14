@@ -17,3 +17,10 @@ Discuss any notable challenges you faced during the project and how you overcame
 ## Conclusion
 
 Wrap up with final thoughts on the project, its impact, and what you learned.
+
+## Code
+
+```python
+for i in range(4):
+    print(i)
+```
