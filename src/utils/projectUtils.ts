@@ -4,10 +4,10 @@ export interface Project {
   slug: string;
   title: string;
   shortDescription: string;
-  technologies: string[];
+  technologies?: string[];
   image: string;
-  githubLink: string;
-  liveLink: string;
+  githubLink?: string;
+  liveLink?: string;
   markdownFile: string;
 }
 

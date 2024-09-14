@@ -10,13 +10,11 @@
       "markdownFile": "project1.md"
     },
     {
-      "slug": "project2",
-      "title": "Project 2",
-      "shortDescription": "Brief description of Project 2. Explain its purpose and your role in it.",
-      "technologies": ["Vue.js", "Express", "PostgreSQL"],
-      "image": "/images/project2.jpg",
-      "githubLink": "https://github.com/yourusername/project2",
-      "liveLink": "https://project2.com",
-      "markdownFile": "project2.md"
+      "slug": "transfuser",
+      "title": "Transfuser: Autonomous Vehicle Visual Control in Simulation",
+      "shortDescription": "Using neural networks to drive a car in CARLA.",
+      "image": "/images/transfuser/carla.png",
+      "githubLink": "https://github.com/sarveshmayil/carla_garage",
+      "markdownFile": "transfuser.md"
     }
   ]

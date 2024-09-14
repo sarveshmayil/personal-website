@@ -37,6 +37,10 @@ const CodeBlock: React.FC<React.HTMLProps<HTMLElement> & CodeProps> = ({ classNa
   );
 };
 
+const ImageComponent: React.FC<{ src: string; alt?: string; title?: string; width?: string; height?: string }> = ({ src, alt, title, width, height }) => (
+  <img src={src} alt={alt} title={title} style={{ maxWidth: '100%', height: height ?? 'auto', width: width ?? '500px', display: 'block', margin: '0 auto' }} />
+);
+
 export default function ProjectPage() {
   const { slug } = useParams<{ slug: string }>();
   const [project, setProject] = useState<(ProjectType & { content: string }) | null>(null);
@@ -69,19 +73,28 @@ export default function ProjectPage() {
   if (!project) return <div className="text-3xl font-bold mb-4 text-center">Project not found</div>;
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-12 max-w-4xl">
       <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
+      {project.technologies && (
+        <div className="mb-4">
+          <strong>Technologies:</strong> {project.technologies?.join(', ')}
+        </div>
+      )}
       <div className="mb-4">
-        <strong>Technologies:</strong> {project.technologies.join(', ')}
-      </div>
-      <div className="mb-4">
-        <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="mr-4">GitHub</a>
-        <a href={project.liveLink} target="_blank" rel="noopener noreferrer">Live Demo</a>
+        {project.githubLink && <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="mr-4">GitHub</a>}
+        {project.liveLink && <a href={project.liveLink} target="_blank" rel="noopener noreferrer">Live Demo</a>}
       </div>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
           code: CodeBlock,
+          img: ({ node, ...props }) => {
+            if (node && node.data && (node.data as any).hProperties && (node.data as any).hProperties.width) {
+              const width = (node.data as any).hProperties.width; // Extract width from custom attribute
+              return <ImageComponent src={props.src ?? ''} alt={props.alt} width={width} />;
+            }
+            return <ImageComponent src={props.src ?? ''} alt={props.alt} />;
+          },
           h1: ({ node, ...props }) => <h1 className="text-3xl font-bold my-4" {...props} />,
           h2: ({ node, ...props }) => <h2 className="text-2xl font-bold my-3" {...props} />,
           h3: ({ node, ...props }) => <h3 className="text-xl font-bold my-2" {...props} />,
