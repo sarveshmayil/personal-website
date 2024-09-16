@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import ProjectsPage from './components/ProjectsPage';
 import ProjectPage from './components/ProjectPage';
-import ResearchPage from './components/ResearchPage';
 import ResumePage from './components/ResumePage';
 
 function App() {
@@ -19,9 +18,6 @@ function App() {
             <Link className="text-sm font-medium hover:text-accent transition-colors" to="/projects">
               Projects
             </Link>
-            <Link className="text-sm font-medium hover:text-accent transition-colors" to="/research">
-              Research
-            </Link>
             <Link className="text-sm font-medium hover:text-accent transition-colors" to="/resume">
               Resume
             </Link>
@@ -32,12 +28,11 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/projects/:slug" element={<ProjectPage />} />
-            <Route path="/research" element={<ResearchPage />} />
             <Route path="/resume" element={<ResumePage />} />
           </Routes>
         </main>
         <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-secondary">
-          <p className="text-xs text-text-secondary">© 2023 Sarvesh Mayilvahanan. All rights reserved.</p>
+          <p className="text-xs text-text-secondary">© 2024 Sarvesh Mayilvahanan. All rights reserved.</p>
           <nav className="sm:ml-auto flex gap-4 sm:gap-6">
             <a className="text-xs hover:text-accent transition-colors" href="https://github.com/sarveshmayil" target="_blank" rel="noopener noreferrer">
               GitHub
@@ -45,9 +40,6 @@ function App() {
             <a className="text-xs hover:text-accent transition-colors" href="https://www.linkedin.com/in/sarvesh-mayilvahanan/" target="_blank" rel="noopener noreferrer">
               LinkedIn
             </a>
-            {/* <a className="text-xs hover:text-accent transition-colors" href="#">
-              Email
-            </a> */}
           </nav>
         </footer>
       </div>
