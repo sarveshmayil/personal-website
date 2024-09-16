@@ -11,10 +11,10 @@ function ProjectsPage() {
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
           <div key={project.slug} className="bg-background-secondary rounded-lg shadow-md overflow-hidden">
-            <div className="p-6">
+            <div className="p-6 flex flex-col h-full">
               <h3 className="text-xl font-bold text-text mb-2">{project.title}</h3>
-              <p className="text-text-secondary mb-4">{project.shortDescription}</p>
-              <Link to={`/projects/${project.slug}`} className="text-accent hover:text-accent-hover transition-colors">
+              <p className="text-text-secondary mb-4 flex-grow">{project.shortDescription}</p>
+              <Link to={`/projects/${project.slug}`} className="text-accent hover:text-accent-hover transition-colors mt-auto">
                 Learn More
               </Link>
             </div>
