@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getProjectBySlug, Project as ProjectType } from '../utils/projectUtils';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
@@ -86,22 +87,29 @@ export default function ProjectPage() {
       </div>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw]}
         components={{
           code: CodeBlock,
           img: ({ node, ...props }) => {
-            if (node && node.data && (node.data as any).hProperties && (node.data as any).hProperties.width) {
-              const width = (node.data as any).hProperties.width; // Extract width from custom attribute
+            if (node && node.properties && node.properties.width) {
+              const width = node.properties.width as string;
               return <ImageComponent src={props.src ?? ''} alt={props.alt} width={width} />;
             }
             return <ImageComponent src={props.src ?? ''} alt={props.alt} />;
           },
-          h1: ({ node, children, ...props }) => <h1 className="text-3xl font-bold my-4" {...props} tabIndex={-1}>{children}</h1>,
-          h2: ({ node, children, ...props }) => <h2 className="text-2xl font-bold my-3" {...props} tabIndex={-1}>{children}</h2>,
-          h3: ({ node, children, ...props }) => <h3 className="text-xl font-bold my-2" {...props} tabIndex={-1}>{children}</h3>,
+          h1: ({ node, children, ...props }) => <h1 className="text-3xl font-bold my-4" {...props}>{children}</h1>,
+          h2: ({ node, children, ...props }) => <h2 className="text-2xl font-bold my-3" {...props}>{children}</h2>,
+          h3: ({ node, children, ...props }) => <h3 className="text-xl font-bold my-2" {...props}>{children}</h3>,
           ul: ({ node, ...props }) => <ul className="list-disc list-inside my-2" {...props} />,
           ol: ({ node, ...props }) => <ol className="list-decimal list-inside my-2" {...props} />,
           p: ({ node, ...props }) => <p className="my-2" {...props} />,
           blockquote: ({ node, ...props }) => <blockquote className="border-l-4 border-gray-300 pl-4 italic" {...props} />,
+          a: ({ node, children, ...props }) => <a className="text-blue-600 hover:underline" {...props}>{children}</a>,
+          input: ({ node, ...props }) => props.type === 'checkbox' ? (
+            <input type="checkbox" checked={props.checked} readOnly className="mr-1" />
+          ) : (
+            <input {...props} />
+          ),
         }}
       >
         {project.content}
