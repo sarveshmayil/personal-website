@@ -1,6 +1,6 @@
 import React, { useState, useEffect, CSSProperties } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProjectBySlug, Project as ProjectType } from '../utils/projectUtils';
+import { getProjectBySlug, Project } from '../../utils/projectUtils';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
@@ -44,7 +44,7 @@ const ImageComponent: React.FC<{ src: string; alt?: string; title?: string; widt
 
 export default function ProjectPage() {
   const { slug } = useParams<{ slug: string }>();
-  const [project, setProject] = useState<(ProjectType & { content: string }) | null>(null);
+  const [project, setProject] = useState<(Project & { content: string }) | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

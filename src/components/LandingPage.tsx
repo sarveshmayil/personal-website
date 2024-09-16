@@ -1,56 +1,14 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 
 import CloudParticles from "./InfinityCloud/_CloudParticles";
 import FloatingParticles from "./InfinityCloud/_FloatingParticles";
 import { getCSSVariable } from "../utils/cssUtils";
-
-interface Project {
-    title: string;
-    shortDescription: string;
-    longDescription: string;
-    image: string;
-}
-
-const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, index }) => {
-    const cardRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: cardRef,
-        offset: ["start end", "end start"]
-    });
-
-    const height = useTransform(scrollYProgress, [0.3, 0.4], ["200px", "600px"]);
-    const opacity = useTransform(scrollYProgress, [0.3, 0.4], [0, 1]);
-
-    return (
-        <motion.div
-            ref={cardRef}
-            style={{ height }}
-            className="bg-background rounded-lg shadow-md overflow-hidden"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: index * 0.1 }}
-        >
-            <div className="p-6 h-full flex flex-col">
-                <h3 className="text-xl font-bold text-text mb-2">{project.title}</h3>
-                <p className="text-text-secondary mb-4">{project.shortDescription}</p>
-                <motion.div style={{ opacity }} className="flex-grow overflow-hidden">
-                    <img src={project.image} alt={project.title} className="w-full h-40 object-cover mb-4" />
-                    <p className="text-text-secondary mb-4">{project.longDescription}</p>
-                </motion.div>
-                <Link 
-                    to={`/projects/${project.title.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="text-accent hover:text-accent-hover transition-colors mt-auto"
-                >
-                    Learn More
-                </Link>
-            </div>
-        </motion.div>
-    );
-};
+import { Project } from '../utils/projectUtils';
+import { ProjectCard } from './Projects/ProjectCard';
+import projectsData from '../data/projectsData.json';
 
 const LandingPage: React.FC = () => {
     const [backgroundColor, setBackgroundColor] = useState<string>('');
@@ -61,26 +19,8 @@ const LandingPage: React.FC = () => {
         setFogColor(getCSSVariable('--color-background-dark'));
     }, []);
 
-    const featuredProjects: Project[] = [
-        {
-            title: 'Project 1',
-            shortDescription: 'Brief description of Project 1.',
-            longDescription: 'Detailed description of Project 1. Highlight key features, technologies used, and your role in the project.',
-            image: 'https://via.placeholder.com/400x200?text=Project+1'
-        },
-        {
-            title: 'Project 2',
-            shortDescription: 'Brief description of Project 2.',
-            longDescription: 'Detailed description of Project 2. Explain its purpose, challenges overcome, and the impact of the project.',
-            image: 'https://via.placeholder.com/400x200?text=Project+2'
-        },
-        {
-            title: 'Project 3',
-            shortDescription: 'Brief description of Project 3.',
-            longDescription: 'Detailed description of Project 3. Mention any notable achievements, lessons learned, and future improvements.',
-            image: 'https://via.placeholder.com/400x200?text=Project+3'
-        },
-    ];
+    const featuredProjectSlugs: string[] = ['transfuser', 'virdo', 'botlab']
+    const featuredProjects: Project[] = projectsData.filter(project => featuredProjectSlugs.includes(project.slug));
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen">
@@ -122,8 +62,8 @@ const LandingPage: React.FC = () => {
                 <div className="container px-4 md:px-6 mx-auto">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-accent mb-8">Featured Projects</h2>
                     <div className="grid gap-24 md:grid-cols-2 lg:grid-cols-3 justify-center">
-                        {featuredProjects.map((project, index) => (
-                            <ProjectCard key={index} project={project} index={index} />
+                        {featuredProjects.map((project) => (
+                            <ProjectCard project={project} primary={true} />
                         ))}
                     </div>
                 </div>
