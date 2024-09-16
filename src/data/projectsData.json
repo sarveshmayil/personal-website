@@ -20,5 +20,19 @@
       "shortDescription": "Building a robotic arm that can pick and place objects.",
       "image": "/images/armlab/armlab.png",
       "markdownFile": "armlab.md"
+    },
+    {
+      "slug": "rvp",
+      "title": "Reshaping Viscoelastic-String Path-Planner (RVP)",
+      "shortDescription": "A physics-based path planner for autonomous vehicles.",
+      "image": "/images/rvp/breakdown.png",
+      "markdownFile": "rvp.md"
+    },
+    {
+      "slug": "virdo",
+      "title": "Visuo-Tactile Implicit Representation of Deformable Objects (VIRDO)",
+      "shortDescription": "Visuo-tactile dynamics and state estimation for soft bubble membrane sensor.",
+      "image": "/images/virdo/tri_soft_gripper.jpg",
+      "markdownFile": "virdo.md"
     }
   ]
