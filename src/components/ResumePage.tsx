@@ -42,7 +42,7 @@ const ResumePage: React.FC = () => {
         },
         {
             category: 'Frameworks & Libraries',
-            items: ['PyTorch', 'Lightning', 'TensorRT', 'ROS', 'Keras', 'Sci-Kit Learn', 'OpenCV', 'React']
+            items: ['PyTorch', 'Lightning', 'TensorRT', 'ROS', 'Keras', 'Postgres', 'Sci-Kit Learn', 'OpenCV', 'React']
         },
         {
             category: 'Tools & Technologies',
