@@ -1,4 +1,5 @@
 import projectsData from '../data/projectsData.json';
+import { getAssetUrl } from './assetUtils';
 
 export interface Project {
   slug: string;
@@ -19,7 +20,7 @@ export async function getProjectBySlug(slug: string): Promise<Project & { conten
   const project = projectsData.find(p => p.slug === slug);
   if (project) {
     try {
-      const response = await fetch(`/projects/${project.markdownFile}`);
+      const response = await fetch(getAssetUrl(`/projects/${project.markdownFile}`));
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

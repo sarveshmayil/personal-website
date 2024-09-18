@@ -6,6 +6,7 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { getAssetUrl } from '../../utils/assetUtils';
 
 // Define the props for our custom code component
 interface CodeProps {
@@ -38,9 +39,24 @@ const CodeBlock: React.FC<React.HTMLProps<HTMLElement> & CodeProps> = ({ classNa
   );
 };
 
-const ImageComponent: React.FC<{ src: string; alt?: string; title?: string; width?: string; height?: string }> = ({ src, alt, title, width, height }) => (
-  <img src={src} alt={alt} title={title} style={{ maxWidth: '100%', height: height ?? 'auto', width: width ?? '500px', display: 'block', margin: '0 auto' }} />
-);
+const ImageComponent: React.FC<{ src: string; alt?: string; title?: string; width?: string; height?: string; style?: React.CSSProperties }> = ({ src, alt, title, width, height, style }) => {
+  const imageUrl = src.startsWith('http') ? src : getAssetUrl(src);
+  return (
+    <img
+      src={imageUrl}
+      alt={alt}
+      title={title}
+      style={{
+        maxWidth: '100%',
+        height: height ?? 'auto',
+        width: width ?? 'auto',
+        display: 'block',
+        margin: '0 auto',
+        ...style
+      }}
+    />
+  );
+};
 
 export default function ProjectPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -91,11 +107,21 @@ export default function ProjectPage() {
         components={{
           code: CodeBlock,
           img: ({ node, ...props }) => {
-            if (node && node.properties && node.properties.width) {
-              const width = node.properties.width as string;
-              return <ImageComponent src={props.src ?? ''} alt={props.alt} width={width} />;
+            const style: React.CSSProperties = {};
+            if (props.style) {
+              Object.entries(props.style).forEach(([key, value]) => {
+                if (key in style) {
+                  (style as any)[key] = value;
+                }
+              });
             }
-            return <ImageComponent src={props.src ?? ''} alt={props.alt} />;
+            return <ImageComponent 
+              src={props.src ?? ''} 
+              alt={props.alt} 
+              width={props.width as string} 
+              height={props.height as string}
+              style={style}
+            />;
           },
           h1: ({ node, children, ...props }) => <h1 className="text-3xl font-bold my-4" {...props}>{children}</h1>,
           h2: ({ node, children, ...props }) => <h2 className="text-2xl font-bold my-3" {...props}>{children}</h2>,

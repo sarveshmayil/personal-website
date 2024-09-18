@@ -1,16 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import ProjectsPage from './components/Projects/ProjectsPage';
 import ProjectPage from './components/Projects/ProjectPage';
 import ResumePage from './components/ResumePage';
 import NotFoundPage from './components/NotFoundPage';
 
-const PUBLIC_URL = process.env.PUBLIC_URL || '';
 
 function App() {
   return (
-    <Router basename={PUBLIC_URL}>
+    <Router>
       <div className="flex flex-col min-h-screen bg-background text-text">
         <header className="px-4 lg:px-6 h-14 flex items-center border-b border-secondary">
           <Link className="flex items-center justify-center" to="/">
