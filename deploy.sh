@@ -3,7 +3,7 @@
 # abort on errors
 set -e
 
-env PUBLIC_URL=https://sarveshmayil.github.io/personal npm run build
+env PUBLIC_URL=https://sarveshmayil.github.io/personal-website npm run build
 
 cd build
 
@@ -13,3 +13,5 @@ git commit -m 'deploy'
 
 # deploying to https://{USERNAME}.github.io/{REPO}
 git push -f git@github.com:sarveshmayil/personal-website.git master:gh-pages
+
+cd -

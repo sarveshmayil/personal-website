@@ -4,10 +4,13 @@ import LandingPage from './components/LandingPage';
 import ProjectsPage from './components/Projects/ProjectsPage';
 import ProjectPage from './components/Projects/ProjectPage';
 import ResumePage from './components/ResumePage';
+import NotFoundPage from './components/NotFoundPage';
+
+const PUBLIC_URL = process.env.PUBLIC_URL || '';
 
 function App() {
   return (
-    <Router>
+    <Router basename={PUBLIC_URL}>
       <div className="flex flex-col min-h-screen bg-background text-text">
         <header className="px-4 lg:px-6 h-14 flex items-center border-b border-secondary">
           <Link className="flex items-center justify-center" to="/">
@@ -29,6 +32,7 @@ function App() {
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/projects/:slug" element={<ProjectPage />} />
             <Route path="/resume" element={<ResumePage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-secondary">

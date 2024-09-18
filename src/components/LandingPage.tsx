@@ -10,6 +10,8 @@ import { Project } from '../utils/projectUtils';
 import { ProjectCard } from './Projects/ProjectCard';
 import projectsData from '../data/projectsData.json';
 
+const PUBLIC_URL = process.env.PUBLIC_URL || '';
+
 const LandingPage: React.FC = () => {
     const [backgroundColor, setBackgroundColor] = useState<string>('');
     const [fogColor, setFogColor] = useState<string>('');
@@ -48,10 +50,10 @@ const LandingPage: React.FC = () => {
                             </p>
                         </div>
                         <div className="space-x-4 pointer-events-auto">
-                            <Link to="/projects" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-accent text-background hover:bg-accent-hover h-10 py-2 px-4">
+                            <Link to={`${PUBLIC_URL}/projects`} className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-accent text-background hover:bg-accent-hover h-10 py-2 px-4">
                                 View Projects
                             </Link>
-                            <Link to="/contact" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background border border-accent text-accent hover:bg-accent hover:text-background h-10 py-2 px-4">
+                            <Link to={`${PUBLIC_URL}/contact`} className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background border border-accent text-accent hover:bg-accent hover:text-background h-10 py-2 px-4">
                                 Contact Me
                             </Link>
                         </div>
