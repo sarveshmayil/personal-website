@@ -16,7 +16,10 @@ Forces emanating from obstacles result in virtual forces acting on these discret
 
 Here are some additional examples of RVP:
 
-<img src='/images/rvp/scenario1.png' width='200'><img src='/images/rvp/scenario2.png' width='200'><img src='/images/rvp/scenario3.png' width='200'>
+<div style="display: flex; justify-content: center;">
+    <img src='/images/rvp/scenario2.png' width='300'>
+    <img src='/images/rvp/scenario3.png' width='300'>
+</div>
 
 Comparing the performance of RVP against RLP, we see that it is able to avoid all obstacles while maintaining a lower amount of deviation from the original path.
 
