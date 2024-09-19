@@ -18,7 +18,7 @@ Inverse kinematics is crucial to determining the joint angles that will result i
 
 Path planning for the robotic arm falls under two categories of block pickup and block placement. For block pickup, we perform a series of motions that mitigate error in the end effector position. The system tests for a range of different pickup angles with higher priority for picking up the block from directly above, which is most accurate. Block placement follows a similar order of operations and finds the safest and most accurate series of motions in order to place the block at the intended position.
 
-The full report for the control portion of this work can be found [here](https://sarveshmayil.github.io/files/armlab_control_report.pdf)
+The full report for the control portion of this work can be found [here](https://sarveshmayil.github.io/personal-website/files/projects/armlab_control_report.pdf)
 
 ### Perception
 
@@ -44,4 +44,4 @@ We find that the third method of color refinement provided the best results both
 
 These systems combined together provided extremely accurate pose estimation and color detection of the blocks, which aided in more consistent and accurate autonomy.
 
-The full report for the perception portion of this work can be found [here](https://sarveshmayil.github.io/files/armlab_cv_report.pdf)
+The full report for the perception portion of this work can be found [here](https://sarveshmayil.github.io/personal-website/files/projects/armlab_cv_report.pdf)

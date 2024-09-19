@@ -25,7 +25,7 @@ Comparing the performance of RVP against RLP, we see that it is able to avoid al
 ## Additional Work
 One major downside to RVP is the large computational cost, which makes it unsuitable for real-time applications. A solution to this problem is to generate a dataset using RVP to train a NN to emulate RVP's performance.
 
-To accomplish this, we needed to generate a dataset with a wide range of environments and paths. This is done by placing randomly shaped/sized objects (sampled from a tuned distribution of sizes and locations) in a 2D environment. Then, paths with random length and curvature and generated as initial paths for the model. An in-depth Monte Carlo analysis of these randomly generated data scenarios can be found [here](https://sarveshmayil.github.io/files/rvp-mlmc.pdf). Some examples of these paths can be seen below.
+To accomplish this, we needed to generate a dataset with a wide range of environments and paths. This is done by placing randomly shaped/sized objects (sampled from a tuned distribution of sizes and locations) in a 2D environment. Then, paths with random length and curvature and generated as initial paths for the model. An in-depth Monte Carlo analysis of these randomly generated data scenarios can be found [here](https://sarveshmayil.github.io/personal-website/files/projects/rvp-mlmc.pdf). Some examples of these paths can be seen below.
 
 <img src="/images/rvp/rand_scenarios.png" width="400" style="display: block; margin: 0 auto" />
 

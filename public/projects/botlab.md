@@ -38,4 +38,4 @@ Path planning allows the bot to find waypoints to move from one location to anot
 
 Exploration in the system is handled by identifying frontiers within the map, which are indications that the region beyond has not been explored yet. The bot plans a path to each frontier and eventually eliminates all frontiers, resulting in a fully explored map.
 
-The full report for this work and results can be found [here](https://sarveshmayil.github.io/files/botlab_report.pdf)
+The full report for this work and results can be found [here](https://sarveshmayil.github.io/personal-website/files/projects/botlab_report.pdf)

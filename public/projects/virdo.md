@@ -55,4 +55,4 @@ The figure below shows the results of this filtering-based state estimation for 
 ## Discussion
 Overall, this project found that it is possible to model the behavior of the soft bubble gripper implicitly through a neural network and that VIRDO++ succeeds in capturing the dynamics of the bubble as well as its geometrical representation. 
 
-The full report for this work can be found [here](https://sarveshmayil.github.io/files/bubble_virdo_report.pdf)
+The full report for this work can be found [here](https://sarveshmayil.github.io/personal-website/files/projects/bubble_virdo_report.pdf)
