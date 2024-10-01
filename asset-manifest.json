@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "https://sarveshmayil.github.io/personal-website/static/css/main.5510e2b0.css",
+    "main.js": "https://sarveshmayil.github.io/personal-website/static/js/main.8d4eec7f.js",
+    "static/js/767.497b8619.chunk.js": "https://sarveshmayil.github.io/personal-website/static/js/767.497b8619.chunk.js",
+    "index.html": "https://sarveshmayil.github.io/personal-website/index.html",
+    "main.5510e2b0.css.map": "https://sarveshmayil.github.io/personal-website/static/css/main.5510e2b0.css.map",
+    "main.8d4eec7f.js.map": "https://sarveshmayil.github.io/personal-website/static/js/main.8d4eec7f.js.map",
+    "767.497b8619.chunk.js.map": "https://sarveshmayil.github.io/personal-website/static/js/767.497b8619.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5510e2b0.css",
+    "static/js/main.8d4eec7f.js"
+  ]
+}
