@@ -1,10 +1,9 @@
 import React from 'react';
 
 const NotFoundPage: React.FC = () => {
-  console.log('NotFoundPage rendered');
   return (
-    <div>
-      <h1>404 - Not Found</h1>
+    <div className="flex justify-center items-center h-screen bg-background text-text font-sans">
+      <h1 className="text-4xl md:text-6xl font-bold">404 - Not Found</h1>
     </div>
   );
 };
