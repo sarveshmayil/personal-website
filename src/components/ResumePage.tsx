@@ -38,11 +38,11 @@ const ResumePage: React.FC = () => {
     const skills: Skill[] = [
         {
             category: 'Programming Languages',
-            items: ['Python', 'C++', 'Bash', 'SQL', 'JavaScript']
+            items: ['Python', 'Rust', 'C++', 'Bash', 'SQL', 'JavaScript']
         },
         {
             category: 'Frameworks & Libraries',
-            items: ['PyTorch', 'Lightning', 'TensorRT', 'ROS', 'Keras', 'Postgres', 'Sci-Kit Learn', 'OpenCV', 'React']
+            items: ['PyTorch', 'Lightning', 'TensorRT', 'ROS', 'Keras', 'Postgres', 'PyO3', 'React', 'NextJS', 'FastAPI']
         },
         {
             category: 'Tools & Technologies',
@@ -52,14 +52,23 @@ const ResumePage: React.FC = () => {
 
     const workExperience: WorkExperience[] = [
         {
+            title: 'Senior Software Engineer',
+            company: 'Forterra',
+            period: '2025 - Present',
+            description: [
+                'Leading development of perception ML stack',
+                'Led the planning, execution, and deployment of a new model to vehicles'
+            ]
+        },
+        {
             title: 'Sofware Engineer II',
             company: 'Forterra',
-            period: '2024 - Present',
+            period: 'February 2024 - December 2024',
             description: [
-                'Lead ML engineer for perception stack',
-                'Training and deploying deep learning models',
-                'Building scalable ML infrastructure for model training and evaluation',
-                'Creating internal tools for data exploration and visualization'
+                'Built production ML infrastructure for model training, evaluation, optimization, and deployment',
+                'Trained and deployed deep learning models for iterative improvements',
+                'Created internal web tool from scratch to monitor and compare trained models',
+                'Created natural language-based search tool based on embeddings to discover long tail data for model training.'
             ]
         },
         {
