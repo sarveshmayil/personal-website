@@ -42,11 +42,11 @@ const ResumePage: React.FC = () => {
         },
         {
             category: 'Frameworks & Libraries',
-            items: ['PyTorch', 'Lightning', 'TensorRT', 'ROS', 'Keras', 'Postgres', 'PyO3', 'React', 'NextJS', 'FastAPI']
+            items: ['PyTorch', 'Lightning', 'TensorRT', 'ROS', 'Postgres', 'PyO3', 'React', 'NextJS', 'FastAPI']
         },
         {
             category: 'Tools & Technologies',
-            items: ['Linux', 'Git', 'Docker', 'AWS', 'CI/CD']
+            items: ['Linux', 'Git', 'Docker', 'AWS', 'Metaflow', 'CI/CD']
         }
     ];
 
@@ -54,21 +54,23 @@ const ResumePage: React.FC = () => {
         {
             title: 'Senior Software Engineer',
             company: 'Forterra',
-            period: '2025 - Present',
+            period: 'January 2025 - Present',
             description: [
-                'Leading development of perception ML stack',
-                'Led the planning, execution, and deployment of a new model to vehicles'
+                'Lead the planning, execution, and deployment of multiple new perception ML models to vehicles',
+                'Developed a self-supervised data annotation generation pipeline to increase annotated data volumes by 30x',
+                'Created natural language-based search tool based on embeddings to discover long tail data for model training.',
+                'Maintained data pipelines to efficiently store data and annotations in database and pull them into ML training infrastructure'
             ]
         },
         {
-            title: 'Sofware Engineer II',
+            title: 'Software Engineer II',
             company: 'Forterra',
             period: 'February 2024 - December 2024',
             description: [
                 'Built production ML infrastructure for model training, evaluation, optimization, and deployment',
                 'Trained and deployed deep learning models for iterative improvements',
                 'Created internal web tool from scratch to monitor and compare trained models',
-                'Created natural language-based search tool based on embeddings to discover long tail data for model training.'
+                'Significantly improved model performance on key classes through targeted data curation and hyperparameter tuning'
             ]
         },
         {
